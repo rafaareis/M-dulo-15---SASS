@@ -1,4 +1,5 @@
 @use 'config/reset';
+@use 'config/variaveis';
 
 @mixin elementoForm($margin: 16px) {
     padding: 8px;
@@ -20,7 +21,8 @@ body {
 
 header {
     padding: 16px;
-    background-color: yellow;
+    background-color: variaveis.$corPrincipal;
+    color: variaveis.$corDaFonte;
     text-align: center;
 }
 
@@ -30,6 +32,7 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-width: 760px;
 }
 
 form {
@@ -38,18 +41,37 @@ form {
     max-width: 500px;
     margin-top: 40px;
 
+    label {
+        font-weight: bolder;
+        font-style: italic;
+        cursor: pointer;
+    }
+
     input {
         @include elementoForm(80px);
         background-color: transparent;
         border: none;
-        border-bottom: 1px solid #000; 
+        border-bottom: 5px solid variaveis.$corSecundaria; 
     }
 
     button {
         @include elementoForm();
+        background-color: variaveis.$corSecundaria;
+        color: variaveis.$corDaFonte;
+        font-size: 18px;
+        font-weight: bold;
+        font-style: italic;
+        cursor: pointer;
+        border: none;
     }
 
 
 
+}
+
+@media screen and (max-width: variaveis.$mobile) {
+    body {
+        background-color: yellow;
+    }
 }
 
