@@ -31,6 +31,11 @@ header {
   max-width: 760px;
 }
 
+h2 {
+  font-size: 3em;
+  text-align: center;
+}
+
 form {
   width: 100%;
   max-width: 500px;
@@ -50,6 +55,9 @@ form input {
   border: none;
   border-bottom: 5px solid #0fb9b1;
 }
+form input:hover {
+  border-bottom: 5px solid #27ede4;
+}
 form button {
   padding: 8px;
   display: block;
@@ -63,10 +71,19 @@ form button {
   cursor: pointer;
   border: none;
 }
+form button:hover {
+  background-color: #09726d;
+}
 
 @media screen and (max-width: 767px) {
   body {
     background-color: yellow;
+  }
+  .container {
+    max-width: 80%;
+  }
+  .container h2 {
+    font-size: 2.5em;
   }
 }
 

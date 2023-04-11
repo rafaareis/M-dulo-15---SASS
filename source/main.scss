@@ -1,5 +1,6 @@
 @use 'config/reset';
 @use 'config/variaveis';
+@use 'sass:math';
 
 @mixin elementoForm($margin: 16px) {
     padding: 8px;
@@ -8,6 +9,11 @@
     margin-bottom: $margin;
 
 }
+
+@function pixelParaEm($alvoEmPixel, $contextoEmPixel: 16px) {
+    @return math.div($alvoEmPixel, $contextoEmPixel)+em;
+}
+
 
 body {
     background-color: #eee;
@@ -35,6 +41,11 @@ header {
     max-width: 760px;
 }
 
+h2 {
+    font-size: pixelParaEm(48px);
+    text-align: center;
+}
+
 form {
 
     width: 100%;
@@ -51,7 +62,12 @@ form {
         @include elementoForm(80px);
         background-color: transparent;
         border: none;
-        border-bottom: 5px solid variaveis.$corSecundaria; 
+        border-bottom: 5px solid variaveis.$corSecundaria;
+        
+        &:hover {
+            border-bottom: 5px solid lighten(variaveis.$corSecundaria, 15%);
+        }
+
     }
 
     button {
@@ -63,15 +79,26 @@ form {
         font-style: italic;
         cursor: pointer;
         border: none;
+
+        &:hover {
+            background-color: darken(variaveis.$corSecundaria, 15%);
+        }
+    
     }
-
-
 
 }
 
 @media screen and (max-width: variaveis.$mobile) {
     body {
         background-color: yellow;
+    }
+
+    .container {
+        max-width: 80%;
+
+        h2 {
+            font-size: pixelParaEm(40px);   
+        }
     }
 }
 
